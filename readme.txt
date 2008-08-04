@@ -10,13 +10,14 @@ SocioFluid is a Social Bookmarking Plugin, displaying small icons, which grows w
 
 == Description ==
 
-Features:
+= Features =
+
 * Icons for major Social Bookmarking websites: Digg, Reddit, del.icio.us, dzone, stumbleupon, blinklist, blogmarks, furl, newsvine, technorati, magnolia. More to be added in the next versions.
 * "mac effect" - when the mouse is over the icons they grow. SocioFluid plugin uses jquery with icondock plugin to render the “mac effect”.
 * Administration Panel to select only the desired Social Bookmarking sites.
 * New features for SocialFluid can be requested on http://www.openversion.com/projects/sociofluid
 
-You can check SocioFluid plugin in action here: http://www.improveseo.info/sociofluid-wordpress-social-bookmarking-plugin/ 
+You can check SocioFluid plugin in action on [improveseo.info] (http://www.improveseo.info/sociofluid-wordpress-social-bookmarking-plugin/)
 
 == Installation ==
 
