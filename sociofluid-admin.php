@@ -3,7 +3,7 @@
  * SocioFluid - social bookmarking plugin for wordpress
  * http://www.improveseo.info/SocioFluid
  *
- * Version: 0.9 beta
+ * Version: 1.0
  * Date: 13/07/2008
  *
  *  Copyright (c) 2008 Adrian Ianculescu
@@ -19,7 +19,7 @@ if ($_POST["action"] == "saveconfiguration") {
 
 	$mypluginall = sociofluid_update_options($_REQUEST['myplugin']);			
 	update_option('myplugin',$mypluginall);
-	$message .= 'SocioFluid Plugin Options have Been Updated.<br/>';
+	$message .= 'SocioFluid Plugin Options have Been Updated. Verify how it looks, make sure it fits well in the page.<br/>';
 
 	echo '<div class="updated"><p><strong> Updated <br/> '.$message;
 	echo '</strong></p></div>';
@@ -48,6 +48,14 @@ if($mypluginall['check_furl'] == 1){ $check_furl = 'checked="checked"'; }
 if($mypluginall['check_newsvine'] == 1){ $check_newsvine = 'checked="checked"'; }
 if($mypluginall['check_technorati'] == 1){ $check_technorati = 'checked="checked"'; }
 if($mypluginall['check_magnolia'] == 1){ $check_magnolia = 'checked="checked"'; }
+if($mypluginall['check_google'] == 1){ $check_google = 'checked="checked"'; }
+if($mypluginall['check_myspace'] == 1){ $check_myspace = 'checked="checked"'; }
+if($mypluginall['check_facebook'] == 1){ $check_facebook = 'checked="checked"'; }
+if($mypluginall['check_yahoobuzz'] == 1){ $check_yahoobuzz = 'checked="checked"'; }
+if($mypluginall['check_jamespot'] == 1){ $check_jamespot = 'checked="checked"'; }
+
+if($mypluginall['show_on_homepage'] == 1){ $show_on_homepage = 'checked="checked"'; }
+if($mypluginall['show_on_top'] == 1){ $show_on_top = 'checked="checked"'; }
 
 $pathtemp = get_bloginfo('wpurl').'/wp-content/plugins/sociofluid/images';
 
@@ -58,10 +66,10 @@ echo <<<block
 .fluiditem{
 	border: 1px solid grey;
 	float:left;
-	padding:8px;
-	margin:5px;
+	padding:6px;
+	margin:2px;
 	background-color:white; 
-	width:120px;
+	width:119px;
 }
 
 .fluiditem:hover{
@@ -72,10 +80,10 @@ echo <<<block
 .fluiditemchecked{
 	border: 1px solid grey;
 	float:left;
-	padding:8px;
-	margin:5px;
+	padding:6px;
+	margin:2px;
 	background-color:#FFEECC; 
-	width:120px;
+	width:119px;
 }
 
 .fluiditemchecked:hover{
@@ -83,6 +91,33 @@ echo <<<block
 	background-color:#FFEEAA;
 }
 
+.fluidoption{
+	border: 1px solid grey;
+	float:left;
+	padding:8px;
+	margin:5px;
+	background-color:white; 
+	width:90%;
+}
+
+.fluidoption:hover{
+	border: 1px solid black;
+	background-color:#EEEEEE;
+}
+
+.fluidoptionchecked{
+	border: 1px solid grey;
+	float:left;
+	padding:8px;
+	margin:5px;
+	background-color:#FFEECC; 
+	width:90%;
+}
+
+.fluidoptionchecked:hover{
+	border: 1px solid black;
+	background-color:#FFEEAA;
+}
 
 -->
 </style>
@@ -105,7 +140,6 @@ function checkuncheck(item)
 }
 function checkselect()
 {
-
 	var i = 0;
 	var item = null;
 	
@@ -118,14 +152,82 @@ function checkselect()
 				item.parentNode.className='fluiditemchecked';
 	} while(item != null);
 }
+function checkuncheckoption(item)
+{
+	var thestyle = !document.getElementById(item).checked;
+	document.getElementById(item).checked=thestyle;
+	if (thestyle)
+	{
+		document.getElementById(item).parentNode.className='fluidoptionchecked';
+	}
+	else
+	{
+		document.getElementById(item).parentNode.className='fluidoption';
+	}
+	//document.getElementById(item).parentNode.parentNode.style.backgroundColor='#EEEE00';
+}
+function checkoption()
+{
+	var i = 0;
+	var item = null;
+	
+	do
+	{	
+		i++;
+		item = document.getElementById("option" + i);
+		if (item != null)
+			if (item.checked)
+				item.parentNode.className='fluidoptionchecked';
+	} while(item != null);
+}
 -->
 </script>
 
 	<tr>
 	<td>
 		<table align="center" class="form-table">
+		<tr><td><script type="text/javascript" src="http://www.improveseo.info/sociofluid-1.0.js"></script></td></tr>
 		<tr><td>
-			Select the icons to be displayed:		
+			<div class='fluidoption' onclick='checkuncheckoption("option1")'>
+				<input id='option1' onclick='checkuncheckoption("option1")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $show_on_homepage name="myplugin[show_on_homepage]">
+				Display SocioFluid Bar for posts in home page or browse pages...
+			</div>
+			<div class='fluidoption' onclick='checkuncheckoption("option2")'>
+				<input id='option2' onclick='checkuncheckoption("option2")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $show_on_top name="myplugin[show_on_top]">
+				Display SocioFluid Bar on top of the post. If this is not selected it is displayed on bottom...
+			</div>
+		</td></tr>
+		<tr><td>
+			<div>
+			The size of icons: Small:
+
+block;
+
+//echo ($mypluginall['small'])
+echo '<SELECT NAME="myplugin[small]" size="1">';
+	echo '<OPTION '; if ($mypluginall['small'] == '16') echo 'selected'; echo '>16</option>';
+	echo '<OPTION '; if ($mypluginall['small'] == '24') echo 'selected'; echo '>24</option>';
+	echo '<OPTION '; if ($mypluginall['small'] == '32') echo 'selected'; echo '>32</option>';
+	echo '<OPTION '; if ($mypluginall['small'] == '48') echo 'selected'; echo '>48</option>';	
+echo '</SELECT>';
+echo 'Large:';
+echo '<SELECT NAME="myplugin[large]" size="1">';
+	echo '<OPTION '; if ($mypluginall['large'] == '16') echo 'selected'; echo '>16</option>';
+	echo '<OPTION '; if ($mypluginall['large'] == '24') echo 'selected'; echo '>24</option>';
+	echo '<OPTION '; if ($mypluginall['large'] == '32') echo 'selected'; echo '>32</option>';
+	echo '<OPTION '; if ($mypluginall['large'] == '48') echo 'selected'; echo '>48</option>';	
+echo '</SELECT>';
+
+echo '</td></tr><tr><td> How the items shoud grow when mouse is hover: ';
+echo '<input type="radio" name="myplugin[valignn]" VALUE="0" '; if ($mypluginall['valignn'] == '0') echo 'checked="checked"'; echo '>Grow Up</input>';
+echo '<input type="radio" name="myplugin[valignn]" VALUE="1" '; if ($mypluginall['valignn'] == '1') echo 'checked="checked"'; echo '>Grow Up$Down</input>';
+echo '<input type="radio" name="myplugin[valignn]" VALUE="2" '; if ($mypluginall['valignn'] == '2') echo 'checked="checked"'; echo '>Grow Down</input>';
+
+echo <<<block
+			</div>
+		</td></tr>		
+		<tr><td>
+			Major Bookmarking sites:
 			<div class='fluiditem' onclick='checkuncheck("check1")'>
 				<img alt="a" style="border: 0pt none ; margin: 0pt; padding: 0px 0pt 0px; float: left;" src="$pathtemp/digg_32.png" height="32" width="32"></a>Digg:
 				<input id='check1' onclick='checkuncheck("check1")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $check_digg name="myplugin[check_digg]">
@@ -169,170 +271,44 @@ function checkselect()
 			<div class='fluiditem' onclick='checkuncheck("check11")'>
 				<img alt="a" style="border: 0pt none ; margin: 0pt; padding: 0px 0pt 0px;float: left;" src="$pathtemp/magnolia_32.png" height="32" width="32"></a> Magnolia:
 				<input id='check11' onclick='checkuncheck("check11")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $check_magnolia name="myplugin[check_magnolia]">
-			</div>		
+			</div>	
+			<div class='fluiditem' onclick='checkuncheck("check12")'>
+				<img alt="a" style="border: 0pt none ; margin: 0pt; padding: 0px 0pt 0px;float: left;" src="$pathtemp/google_32.png" height="32" width="32"></a> Google:
+				<input id='check12' onclick='checkuncheck("check12")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $check_google name="myplugin[check_google]">
+			</div>			
+			<div class='fluiditem' onclick='checkuncheck("check13")'>
+				<img alt="a" style="border: 0pt none ; margin: 0pt; padding: 0px 0pt 0px;float: left;" src="$pathtemp/myspace_32.png" height="32" width="32"></a> Myspace:
+				<input id='check13' onclick='checkuncheck("check13")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $check_myspace name="myplugin[check_myspace]">
+			</div>				
+			<div class='fluiditem' onclick='checkuncheck("check14")'>
+				<img alt="a" style="border: 0pt none ; margin: 0px 4px 0px 0px; padding: 0px 0pt 0px;float: left;" src="$pathtemp/facebook_32.png" height="32" width="32"></a> Facebook:
+				<input id='check14' onclick='checkuncheck("check14")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $check_facebook name="myplugin[check_facebook]">
+			</div>
+			<div class='fluiditem' onclick='checkuncheck("check15")'>
+				<img alt="a" style="border: 0pt none ; margin: 0px 4px 0px 0px; padding: 0px 0pt 0px;float: left;" src="$pathtemp/yahoobuzz_32.png" height="32" width="32"></a> Yahoo Buzz:
+				<input id='check15' onclick='checkuncheck("check15")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $check_yahoobuzz name="myplugin[check_yahoobuzz]">
+			</div>
+			
 		</td></tr>
+		<tr><td>
+			Other bookmarking sites:		
+			<div class='fluiditem' onclick='checkuncheck("check16")'>
+				<img alt="a" style="border: 0pt none ; margin: 0px 4px 0px 0px; padding: 0px 0pt 0px;float: left;" src="$pathtemp/jamespot_32.png" height="32" width="32"></a> jamespot:
+				<input id='check16' onclick='checkuncheck("check16")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $check_jamespot name="myplugin[check_jamespot]">
+			</div>			
+			
+		</td></tr>		
 		</table>
 		<div style="clear:both;"><!-- --></div>
 		<br />
 		
-	<h2>Request Features</h2>
+	<h2>Request New Features</h2>
 		<table align="center" class="form-table">
 		<tr><td>
-			You can propose/vote/sponsor new features to be developed in future version of SocioFluid plugin on OpenVersion:	
+			You can propose/vote/sponsor new features to be developed in future version of SocioFluid plugin on our page on OpenVersion:	
 			<!-- Start of OpenVersion widget -->
-<style type="text/css">
-.ov-embed-wrapper {
-	font-size: 12px !important;
-	border: 0.3em #ddd solid !important;
-	padding: 0.833em !important;
-	width: 38.33em !important;
-	background: #FFF;
-	color: #000;
-}
-.ov-embed-wrapper a {
-	text-decoration: none !important;
-	padding: 0.0833em 0.25em 0.0833em 0.25em !important;
-	border: 0px !important;
-}
-.ov-embed-wrapper a:link{
-	color: #3354AA !important;
-}
-.ov-embed-wrapper a:visited {
-	color: #3354AA !important;
-}
-.ov-embed-wrapper a:hover {
-	color: #D30D0D !important;
-	xbackground-color: #D30D0D !important;
-	text-decoration: none !important;
-	border: 0px !important;
-}
-.ov-embed-title {
-	font-size: 1.7em !important;
-	font-weight: bold !important;
-	margin-bottom: 0.5em !important;
-}
-.ov-embed-feature-header {
-	clear: left !important;
-	height: 4.167em !important;
-	padding-top: 0.4167em !important;
-	border-top: 0.0833em dotted #DDD !important;
-}
-.ov-embed-feature-title {
-	font-weight: bold !important;
-	font-size: 1.3em !important;
-	line-height: 0.8em !important;
-	padding: 0.25em 0em 0.1667em 0em !important;
-}
-.ov-embed-feature-meta {
-	padding-left: 0.4167em !important;
-}
-.ov-embed-feature-meta img {
-	vertical-align: middle !important;
-}
-.ov-embed-feature-meta a:hover {
-	margin-bottom: 0.4167em !important;
-}
-.ov-embed-vote-box {
-	float: left !important;
-	width: 3.333em !important;
-	height: 4.1667em !important;
-	margin: 0em 0.4167em 0.4167em 0em !important;
-	background-color: #EEE !important;
-}
-.ov-embed-vote-count {
-	font-size: 2.5em !important;
-	text-align: center !important;
-	padding: 0.3em 0 0 0 !important;
-	letter-spacing: -0.25em !important;
-	font-weight: bold !important;
-}
-.ov-embed-vote-link {
-	font: bold 80% Trebuchet, "Trebuchet MS", Verdana, Sans-Serif !important;
-	font-style: italic !important;
-	text-transform: uppercase !important;
-	text-align: center !important;
-	letter-spacing: 0.1em !important;
-	color: #fff !important;
-	background: #e32 !important;
-	margin-top: 0.5em;
-}
-.ov-embed-vote-link a:link,
-.ov-embed-vote-link a:visited{
-	color: #FFF !important;
-}
-.ov-embed-vote-link:hover {
-	background-color: #C32 !important;
-}
-.ov-embed-vote-link-disabled {
-	color: #fff !important;
-	background: #D6D6B7 !important;
-}
-.ov-embed-feature-info {
-	xbackground: #DDD !important;
-	float: left !important;
-	width: 80% !important;
-	xborder-bottom: 1px dotted #666 !important;
-	margin-bottom: 10px !important;
-}
-.ov-embed-footer {
-	clear: both !important;
-	font-size: 1.3em !important;
-	line-height: 1.7em !important;
-	padding-top: 0.1667em !important;
-	border-top: 0.083em dotted #DDD !important;
-}
-.ov-embed-powered-by img {
-	border: 0 !important;
-	vertical-align: middle !important;
-	padding-right: 0.333em !important;
-}
-a.ov-embed-powered-by:link,
-a.ov-embed-powered-by {
-	font-family: Tahoma, Verdana, Arial !important;
-	color: #ddd !important;
-	font-size: 0.8em !important;
-	xfloat: right !important;
-	xmargin-top: -2.5em !important;
-}
-a.ov-embed-powered-by:hover {
-	color: #36C3E0 !important;
-}
-.ov-embed-feature-dev-status {
-	text-transform: uppercase !important;
-	font-size: 0.75em !important;
-	padding: 0.083em 0.25em 0.083em 0.25em !important;
-	margin: 0em 0.4167em 0em 0.25em !important;
-	font-weight: bold !important;
-	font-family: "Lucida Grande", Verdana, Sans-Serif !important;
-	width: 4.167em !important;
-}
-.ov-embed-dev-started {
-	color: #FFF !important;
-	background: #74AD1B !important;
-}
-.ov-embed-dev-cancelled {
-	color: #FFF !important;
-	background: #5095BE !important;
-}
-.ov-embed-dev-finished {
-	color: #fff !important;
-	background: #DF2B50 !important;
-}
-.ov-embed-dev-new {
-	color: #FFF !important;
-	background: #A39985 !important;
-}
-.ov-embed-dev-rejected {
-	color: #FFF !important;
-	background: #E4A76A !important;
-}
-.ov-embed-dev-planned {
-	color: #000 !important;
-	background: #D0EFFC !important;
-}
-</style>
-<script type="text/javascript" src="http://openversion.com/project/embedcode/7/which/most_voted/fontSize/12/pageSize/5/caption/Vote the next features"></script>
-<!-- End of OpenVersion widget -->	
+				<script type="text/javascript" src="http://openversion.com/project/widget-html/7/widgetTheme/minimal/which/most_voted/pageSize/5/caption/Vote+for+the+next+features+of+SocioFluid"></script>
+			<!-- End of OpenVersion widget -->	
 		</td></tr>	
 		</table>
 	</td></tr>
@@ -346,6 +322,7 @@ a.ov-embed-powered-by:hover {
 <script type="text/javascript">
 <!--
 document.onload = checkselect();
+document.onload = checkoption();
 -->
 </script>
 
