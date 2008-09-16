@@ -15,7 +15,7 @@
  
 /*
 Plugin Name: SocioFluid
-Plugin URI: http://akismet.com/
+Plugin URI: http://www.improveseo.info/SocioFluid
 Description:  SocioFluid is a social bookmarking plugin for wordpress. For details you can check the <a href="http://www.improveseo.info/SocioFluid">SocioFluid Homepage</a>.
 Version: 1.0
 Author: Adrian Ianculescu
