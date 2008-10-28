@@ -3,8 +3,8 @@
  * SocioFluid - social bookmarking plugin for wordpress
  * http://www.improveseo.info/SocioFluid
  *
- * Version: 1.0
- * Date: 13/07/2008
+ * Version: 1.1
+ * Date: 28/10/2008
  *
  *  Copyright (c) 2008 Adrian Ianculescu
  *  Dual licensed under the MIT-LICENSE.txt and GPL-LICENSE.txt
@@ -180,7 +180,7 @@ function checkoption()
 	<tr>
 	<td>
 		<table align="center" class="form-table">
-		<tr><td><script type="text/javascript" src="http://www.improveseo.info/sociofluid-1.0.js"></script></td></tr>
+		<tr><td><script type="text/javascript" src="http://www.improveseo.info/sociofluid-1.1.js"></script></td></tr>
 		<tr><td>
 			<div class='fluidoption' onclick='checkuncheckoption("option1")'>
 				<input id='option1' onclick='checkuncheckoption("option1")' style="border: 0pt none ; margin-left: 6pt; float: left;"  type="checkbox" value="1" $show_on_homepage name="myplugin[show_on_homepage]">

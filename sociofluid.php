@@ -4,7 +4,7 @@
  * http://www.improveseo.info/category/sociofluid/
  *
  * Version: 1.1
- * Date: 13/07/2008
+ * Date: 28/10/2008
  *
  *  Copyright (c) 2008 Adrian Ianculescu
  *  Dual licensed under the MIT-LICENSE.txt and GPL-LICENSE.txt
@@ -324,7 +324,7 @@ function sociofluid_wp_head()
 	$small = get_smallsize($mypluginall);
 	$valign = get_valign($mypluginall);
 	
-	echo '<!-- Required by SocioFluid 1.0 plugin (jquery + jqdock): -->';
+	echo '<!-- Required by SocioFluid 1.1 plugin (jquery + jqdock): -->';
 	echo '<script type="text/javascript" src="'.get_bloginfo('wpurl').'/wp-content/plugins/sociofluid/js/jquery-1.2.6.min.js"></script>';
 	echo '<script type="text/javascript" src="'.get_bloginfo('wpurl').'/wp-content/plugins/sociofluid/js/jquery.jqDock.min.js"></script>';	
 }
