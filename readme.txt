@@ -20,6 +20,16 @@ to mac effect. SocioFluid plugin uses jquery with jqdock plugin to render the “m
 
 You can check SocioFluid plugin in action on its [homepage on improveseo.info](http://www.improveseo.info/sociofluid-wordpress-social-bookmarking-plugin/)
 
+= Release Notes =
+
+Version 1.1:
+
+* New buttons for other social bookmarking sites: Sphinn, TwitThis, Mixx, Meneame
+* Customizable CSS Style for the box containing the icons
+* Nofollow attribute added to the links
+* Links can be configured from admin panel to be opened in new windows
+* The buttons can be generated in custom places(by calling a php function inside the php scripts, template scripts)
+
 == Installation ==
 
 This section describes how to install the plugin and get it working.
@@ -42,14 +52,3 @@ See the previous point.
 1. This is how the plugin looks like
 2. The admin panel
 
-== Screenshots ==
-
-=Release Notes= 
-
-Version 1.1:
-
-* New buttons for other social bookmarking sites: Sphinn, TwitThis, Mixx, Meneame
-* Customizable CSS Style for the box containing the icons
-* Nofollow attribute added to the links
-* Links can be configured from admin panel to be opened in new windows
-* The buttons can be generated in custom places(by calling a php function inside the php scripts, template scripts)
