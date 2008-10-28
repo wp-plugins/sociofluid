@@ -31,7 +31,7 @@ This section describes how to install the plugin and get it working.
 
 = I want to add another Social Bookmarking icon for AnotherDigg.com =
 
-You have 2 options. 1. change yourself the plugin. 2. Let me know what do you need. The best way is to add the desired feature on openversion.com abd you'll get a notification when the feature is implemented. Just follow the link in the admin pannel to request a new button.
+You have 2 options. 1. change yourself the plugin. 2. Let me know what do you need. The best way is to add the desired feature on openversion.com and you'll get a notification when the feature is implemented. Just follow the link in the admin pannel to request a new button.
 
 = I need a new feature =
 
@@ -41,3 +41,15 @@ See the previous point.
 
 1. This is how the plugin looks like
 2. The admin panel
+
+== Screenshots ==
+
+=Release Notes= 
+
+Version 1.1:
+
+* New buttons for other social bookmarking sites: Sphinn, TwitThis, Mixx, Meneame
+* Customizable CSS Style for the box containing the icons
+* Nofollow attribute added to the links
+* Links can be configured from admin panel to be opened in new windows
+* The buttons can be generated in custom places(by calling a php function inside the php scripts, template scripts)
