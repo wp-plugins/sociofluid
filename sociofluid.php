@@ -28,7 +28,7 @@ add_action('wp_head', 'sociofluid_wp_head');
 
 function returnImage($pathtemp, $item, $smallsize, $largesize)
 {
-	return '<img alt="'.$pathtemp.'/'.$item.'_'.$largesize.'.png" style="padding-bottom: '.($largesize-$smallsize).'px; margin:0px;" src="'.$pathtemp.'/'.$item.'_'.$smallsize.'.png"></a>';
+	return '<img alt="'.$pathtemp.'/'.$item.'_'.$largesize.'.png" style="padding-bottom: '.($largesize-$smallsize).'px; margin:0px;" src="'.$pathtemp.'/'.$item.'_'.$smallsize.'.png" /></a>';
 }
 
 
@@ -187,42 +187,42 @@ $checks = array(
 				),
 	"check_reddit" => array(
 				0 => 'reddit',
-				1 => 'http://reddit.com/submit?url=%s&title=%s',
+				1 => 'http://reddit.com/submit?url=%s&amp;title=%s',
 				2 => 'Reddit'
 				),
 	"check_dzone" => array(
 				0 => 'dzone',
-				1 => 'http://dzone.com/links/add.html?url=%s&title=%s',
+				1 => 'http://dzone.com/links/add.html?url=%s&amp;title=%s',
 				2 => 'DZone'
 				),
 	"check_stumbleupon" => array(
 				0 => 'stumbleupon',
-				1 => 'http://www.stumbleupon.com/submit?url=%s&title=%s',
+				1 => 'http://www.stumbleupon.com/submit?url=%s&amp;title=%s',
 				2 => 'StumbleUpon'
 				),
 	"check_delicious" => array(
 				0 => 'delicious',
-				1=> 'http://del.icio.us/post?url=%s&title=%s',
+				1=> 'http://del.icio.us/post?url=%s&amp;title=%s',
 				2 => 'del.icio.us'
 				),
 	"check_blinklist" => array(
 				0 => 'blinklist',
-				1 => 'http://blinklist.com/index.php?Action=Blink/addblink.php&Description=&Url=%s&title=%s',
+				1 => 'http://blinklist.com/index.php?Action=Blink/addblink.php&amp;Description=&amp;Url=%s&amp;title=%s',
 				2 => 'BlinkList'
 				),
 	"check_blogmarks" => array(
 				0 => 'BlogMarks',
-				1 => 'http://blogmarks.net/my/marks,new?mini=1&amp;url=%s&title=%s',
+				1 => 'http://blogmarks.net/my/marks,new?mini=1&amp;url=%s&amp;title=%s',
 				2 => 'BlogMarks'
 				),
 	"check_furl" => array(
 				0 => 'furl',
-				1 => 'http://www.furl.net/storeIt.jsp?&u=%s&t=%s',
+				1 => 'http://www.furl.net/storeIt.jsp?&amp;u=%s&amp;t=%s',
 				2 => 'Furl'
 				),
 	"check_newsvine" => array(
 				0 => 'newsvine',
-				1 => 'http://newsvine.com/_tools/seed&amp;save?u=%s&h=%s',
+				1 => 'http://newsvine.com/_tools/seed&amp;save?u=%s&amp;h=%s',
 				2 => 'NewsVine'
 				),
 	"check_technorati" => array(
@@ -232,17 +232,17 @@ $checks = array(
 				),	
 	"check_magnolia" => array(
 				0 => 'magnolia',
-				1 => 'http://ma.gnolia.com/beta/bookmarklet/add?url=%s&title=%s',
+				1 => 'http://ma.gnolia.com/beta/bookmarklet/add?url=%s&amp;title=%s',
 				2 => 'Magnolia'
 				),
 	"check_google" => array(
 				0 => 'google',
-				1 => 'http://www.google.com/bookmarks/mark?op=add&bkmk=%s&title=%s',
+				1 => 'http://www.google.com/bookmarks/mark?op=add&amp;bkmk=%s&amp;title=%s',
 				2 => 'Google'
 				),
 	"check_myspace" => array(
 				0 => 'myspace',
-				1 => 'http://www.myspace.com/Modules/PostTo/Pages/?u=%s&t=%s',
+				1 => 'http://www.myspace.com/Modules/PostTo/Pages/?u=%s&amp;t=%s',
 				2 => 'Myspace'
 				),				
 	"check_facebook" => array(
@@ -252,32 +252,32 @@ $checks = array(
 				),	
 	"check_yahoobuzz" => array(
 				0 => 'yahoobuzz',
-				1 => 'http://buzz.yahoo.com/submit?submitUrl=%s&submitHeadline=%s',
+				1 => 'http://buzz.yahoo.com/submit?submitUrl=%s&amp;submitHeadline=%s',
 				2 => 'Yahoo Buzz'
 				),	
 	"check_sphinn" => array(
 				0 => 'sphinn',
-				1 => 'http://sphinn.com/submit.php?url=%s&title=%s',
+				1 => 'http://sphinn.com/submit.php?url=%s&amp;title=%s',
 				2 => 'Sphinn'
 				),					
 	"check_mixx" => array(
 				0 => 'mixx',
-				1 => 'http://www.mixx.com/submit?page_url=%s&title=%s',
+				1 => 'http://www.mixx.com/submit?page_url=%s&amp;title=%s',
 				2 => 'Mixx'
 				),				
 	"check_twitthis" => array(
 				0 => 'twitter',
-				1 => 'http://twitthis.com/twit?url=%s&title=%s',
+				1 => 'http://twitthis.com/twit?url=%s&amp;title=%s',
 				2 => 'TwitThis'
 				),
 	"check_jamespot" => array(
 				0 => 'jamespot',
-				1 => 'http://www.jamespot.com/?action=spotit&url=%s&title=%s',
+				1 => 'http://www.jamespot.com/?action=spotit&amp;url=%s&amp;title=%s',
 				2 => 'Jamespot'
 				),
 	"check_meneame" => array(
 				0 => 'meneame',
-				1 => 'http://meneame.net/submit.php?url=%s&title=%s',
+				1 => 'http://meneame.net/submit.php?url=%s&amp;title=%s',
 				2 => 'Meneame'
 				)
 	);
