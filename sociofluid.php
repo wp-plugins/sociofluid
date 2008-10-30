@@ -211,8 +211,8 @@ $checks = array(
 				2 => 'BlinkList'
 				),
 	"check_blogmarks" => array(
-				0 => 'BlogMarks',
-				1 => 'http://blogmarks.net/my/marks,new?mini=1&amp;url=%s&amp;title=%s',
+				0 => 'blogmarks',
+				1 => 'http://blogmarks.net/my/new.php?mini=1&amp;simple=1&url=%s&title=%s'
 				2 => 'BlogMarks'
 				),
 	"check_furl" => array(
