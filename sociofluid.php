@@ -212,7 +212,7 @@ $checks = array(
 				),
 	"check_blogmarks" => array(
 				0 => 'blogmarks',
-				1 => 'http://blogmarks.net/my/new.php?mini=1&amp;simple=1&url=%s&title=%s'
+				1 => 'http://blogmarks.net/my/new.php?mini=1&amp;simple=1&url=%s&title=%s',
 				2 => 'BlogMarks'
 				),
 	"check_furl" => array(
